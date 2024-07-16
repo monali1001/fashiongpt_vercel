@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Recommendations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .instructions {
+            margin-top: 20px;
+            display: none;
+        }
+        .instructions h2 {
+            font-size: 1.5em;
+        }
+        .instructions p {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello Lovelies!</h1>
+        <p>Let's discover your perfect look with our personalized style recommendations. Please fill in the information below to get your inputs.</p>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="body_type" class="form-label">Body Type 
+                    <button type="button" class="btn btn-link p-0" onclick="toggleInstructions()">
+                        If you don't know it, let's figure out, sweetie
+                    </button>
+                </label>
+                <select id="body_type" name="body_type" class="form-select" required onchange="hideInstructions()">
+                    <option value="">Select your body type</option>
+                    <option value="Rectangle/Straight">Rectangle/Straight</option>
+                    <option value="Triangle/Pear">Triangle/Pear</option>
+                    <option value="Spoon">Spoon</option>
+                    <option value="Hourglass">Hourglass</option>
+                    <option value="Top hourglass">Top hourglass</option>
+                    <option value="Bottom hourglass">Bottom hourglass</option>
+                    <option value="Inverted triangle/Apple">Inverted triangle/Apple</option>
+                    <option value="Round/Oval">Round/Oval</option>
+                    <option value="Diamond">Diamond</option>
+                    <option value="Athletic">Athletic</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="preference" class="form-label">Preference</label>
+                <input type="text" id="preference" name="preference" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="occasion" class="form-label">Occasion</label>
+                <input type="text" id="occasion" name="occasion" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Get Recommendations</button>
+        </form>
+        <div id="instructions" class="instructions">
+            <h2>How to Determine Your Body Type</h2>
+            <p>To determine your body type, follow these steps:</p>
+            <p>1. Stand in front of a mirror and wear fitted clothing or undergarments to see your body's natural shape.</p>
+            <p>2. Measure your shoulders at their widest point.</p>
+            <p>3. Measure your bust at the fullest part.</p>
+            <p>4. Measure your waist at the narrowest point, typically just above the belly button.</p>
+            <p>5. Measure your hips at the widest part, typically around the hip bones.</p>
+            <p>Based on these measurements, you can identify your body type as follows:</p>
+            <ul>
+                <li><strong>Rectangle/Straight</strong>: Your shoulders, bust, and hips are approximately the same width, with little definition at the waist.</li>
+                <li><strong>Triangle/Pear</strong>: Your hips are wider than your shoulders and bust, with a well-defined waist.</li>
+                <li><strong>Spoon</strong>: Similar to a pear shape, but your hips have a more pronounced shelf appearance.</li>
+                <li><strong>Hourglass</strong>: Your shoulders and hips are about the same width, with a well-defined waist.</li>
+                <li><strong>Top hourglass</strong>: Your shoulders are slightly wider than your hips, with a well-defined waist.</li>
+                <li><strong>Bottom hourglass</strong>: Your hips are slightly wider than your shoulders, with a well-defined waist.</li>
+                <li><strong>Inverted triangle/Apple</strong>: Your shoulders are wider than your hips, with little definition at the waist.</li>
+                <li><strong>Round/Oval</strong>: Your bust and waist are larger than your hips, with a fuller midsection.</li>
+                <li><strong>Diamond</strong>: Your waist is larger than your bust and hips, with a narrower bust and hips.</li>
+                <li><strong>Athletic</strong>: Your body is muscular with broader shoulders and narrower hips, often with a less defined waist.</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function toggleInstructions() {
+            var instructions = document.getElementById('instructions');
+            if (instructions.style.display === 'none' || instructions.style.display === '') {
+                instructions.style.display = 'block';
+            } else {
+                instructions.style.display = 'none';
+            }
+        }
+
+        function hideInstructions() {
+            var instructions = document.getElementById('instructions');
+            instructions.style.display = 'none';
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
